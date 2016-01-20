@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Student{% endblock %}
+
+{% block content %}
+    <ul>
+        {% for student in students %}
+            <li>
+                id: {{ student.id }}, name: {{ student.name }}, age: {{ student.age }}
+                {% if not forloop.last %}, {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
