@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Query Student{% endblock %}
+
+{% block content %}
+    <table style="width: 60%;" border="1">
+        <td>名字</td>
+        <td>年龄</td>
+        {% for m in students %}
+            <tr>
+                <td>{{ m.name }}</td>
+                <td>{{ m.age }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

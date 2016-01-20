@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from DjangoApp.views import say_hello, current_datetime, hours_ahead, show_students, show_home
+from DjangoApp.views import say_hello, current_datetime, hours_ahead, \
+    show_students, show_home, add_student, query_student, goto_add_student
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -24,4 +25,7 @@ urlpatterns = [
     url(r'^time/plus/(\d{1,2})/$', hours_ahead),
     url(r'^showStudents/$', show_students),
     url(r'^showHome/$', show_home),
+    url(r'^gotoAddStu', goto_add_student),
+    url(r'^addStu/$', add_student),
+    url(r'^queryStudent$', query_student),
 ]

@@ -1,6 +1,7 @@
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render_to_response
 import datetime
+from DjangoApp.models import Student
 
 # Create your views here.
 
@@ -53,3 +54,24 @@ def show_home(request):
     return render_to_response('home.html', {'name': 'Simon Yang'})
 
 
+def goto_add_student(request):
+
+    return render_to_response('add_student.html')
+
+
+def add_student(request):
+    name = request.POST['username']
+    age = request.POST['age']
+
+    st = Student()
+    st.name = name
+    st.age = age
+    st.save()
+
+    return HttpResponseRedirect('/queryStudent')
+
+
+def query_student(request):
+    students = Student.objects.all()
+
+    return render_to_response('query_student.html', {'students': students})
