@@ -3,7 +3,11 @@
 {% block title %}Query Student{% endblock %}
 
 {% block content %}
-    <table style="width: 60%;" border="1">
+    <form action="/queryStudent" method="post">
+        <input type="text" name="search" placeholder="Search">
+        <input type="submit" value="Search">
+    </form>
+    <table style="width: 60%; margin-top: 20px" border="1">
         <td>名字</td>
         <td>年龄</td>
         {% for m in students %}

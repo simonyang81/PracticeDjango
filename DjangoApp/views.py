@@ -72,6 +72,10 @@ def add_student(request):
 
 
 def query_student(request):
-    students = Student.objects.all()
+    try:
+        search = request.POST['search']
+        students = Student.objects.filter(name__contains=search)
+    except Exception:
+        students = Student.objects.all()
 
     return render_to_response('query_student.html', {'students': students})
