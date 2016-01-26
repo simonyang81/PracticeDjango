@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from DjangoApp.views import say_hello, current_datetime, hours_ahead, \
+from DjangoApp.views import current_datetime, hours_ahead, \
     show_students, show_home, add_student, query_student, goto_add_student
+from PracticeApp.views import say_hello
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
